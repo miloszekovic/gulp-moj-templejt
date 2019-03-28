@@ -1,0 +1,266 @@
+/******************************************************************
+Project: Bazar SR
+Code by: Milos Zekovic
+Date: Jun 2017
+******************************************************************/
+
+@import 'reset';
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700&subset=latin-ext');
+@import url('../fonts/font-awesome-4.7.0/css/font-awesome.min.css');
+
+/* sass variables */
+$dark: #333;
+$red: #df1a24;
+$blue: #00519c;
+$gray: #999;
+$lightblue: #237ed2;
+$base: 15px;
+$full: 100%;
+$centering: 0 auto;
+
+/* sass mixing */
+.floating { 
+    display: inline-block;
+    vertical-align: top;
+}
+.hov { 
+    opacity:.80; 
+    -moz-opacity:.80; 
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80); 
+    -MS-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+}
+.act { 
+    opacity:.60; 
+    -moz-opacity:.60; 
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60); 
+    -MS-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+}
+@mixin rounded-corners($size:5px) {
+    border-radius: $size;
+    -webkit-border-radius: $size;
+    -moz-border-radius: $size;
+}
+@mixin box-shadow($size) {
+    -webkit-box-shadow: $size;
+    -moz-box-shadow: $size;
+    box-shadow: $size;
+}
+.fade {
+    transition: all 0.1s ease; 
+    -webkit-transition: all 0.2s ease; 
+    -moz-transition: all 0.2s ease; 
+    -ms-transition: all 0.2s ease; 
+    -o-transition: all 0.2s ease;
+}
+.no-fade, .no-fade * { 
+    transition: none; 
+    -webkit-transition: none; 
+    -moz-transition: none; 
+    -ms-transition: none; 
+    -o-transition: none;  
+}
+.scal {
+    -moz-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+}
+.scal-no {
+    -moz-transform: none;
+    -webkit-transform: none;
+    -o-transform: none;
+    -ms-transform: none;
+    transform: none;
+}
+.img {
+    width: $full;
+    height: auto;
+}
+.roboto {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+.klavika {
+    font-family: 'Klavika', 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+/* font-face */
+@font-face {
+    font-family: 'Klavika';
+    src: url('../fonts/KlavikaBold.eot');
+    src: url('../fonts/KlavikaBold.eot') format('embedded-opentype'),
+         url('../fonts/KlavikaBold.woff2') format('woff2'),
+         url('../fonts/KlavikaBold.woff') format('woff'),
+         url('../fonts/KlavikaBold.ttf') format('truetype'),
+         url('../fonts/KlavikaBold.svg#KlavikaBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* global */
+body { 
+    color: $dark;
+    font-size: $base;
+    line-height: 1.4;
+    background: black;
+}
+
+body, 
+input, 
+textarea,
+body * {
+    @extend .roboto;
+}
+
+a { 
+    color: $blue;
+    text-decoration: none;
+    
+    &:hover { 
+        color: $red;
+        text-decoration: none;
+    }
+
+    &:active { 
+        color: $gray;
+    }
+}
+
+h1, h2, h3, h4, h5 {
+    color: $blue;
+    text-transform: uppercase;
+    @extend .klavika;
+}
+
+h1 {
+    color: #bbb;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+p { 
+    margin-top: 10px;
+    
+    a { 
+        text-decoration: underline;
+        
+        &:hover, &:active { 
+            text-decoration: none;
+        }
+    }
+}
+
+/* basic layout */
+#wrapper,
+section {
+    margin: $centering;
+    max-width: 1940px;
+}
+
+section {
+    @media screen and (min-width: 1366px) {
+        width: 80%;
+    }
+}
+
+/* header */
+header {
+    z-index: 700;
+    transition: all 300ms ease-in-out;
+    position: fixed;
+    width: $full;
+
+    .header {
+        background: #e8e7e7;
+        padding: 30px 0;
+
+        @media screen and (min-width: 1921px) {
+            left: 0;
+        }
+
+        .logo, h1 {
+            @extend .floating;
+        }
+
+        .logo {
+            margin-right: 25px;
+
+            img {
+                height: 60px;
+                width: auto;
+            }
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        .phone {
+            float: right;
+            margin-top: 10px;
+
+            a {
+                display: block;
+                font-size: 34px;
+                color: $gray;
+
+                i {
+                    color: $blue;
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+
+    .nav {
+        padding-top: 10px;
+        background-color: #075eae;
+        background-color: rgba(7,94,174,0.9);
+
+        nav {
+
+            ul li {
+                @extend .floating;
+                margin-right: -2px;
+
+                a {
+                    display: block;
+                    height: 44px;
+                    color: #fff;
+                    padding: 12px 15px 0;
+                    text-transform: uppercase;
+                    font-size: 13px;
+
+                    &:hover {
+                        background: $blue;
+                        @extend .hov;
+                    }
+
+                    &:active {
+                        @extend .act;
+                    }
+                }
+
+                &.current a {
+                    background: $blue;
+                }
+            } 
+        }
+    }
+}
+
+/*****************************************************************/
