@@ -1,5 +1,4 @@
-# gulp-moj-templejt
-Neki moj templejt za frontend automatizovan putem Gulp-a
+# Experience the world - Semantic html 
 
 ## npm install
 
