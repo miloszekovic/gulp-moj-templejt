@@ -1,0 +1,100 @@
+/* Global */
+
+html,
+body {
+    height: 100vh;
+    min-height: 100vh;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: white;
+    color: $dark;
+    @include font-size(1.6, 2.4);
+}
+
+body, 
+input, 
+textarea,
+select {
+    @extend .base-font;
+}
+
+a { 
+    color: $blue-dark;
+    text-decoration: none;
+    
+    &:hover,
+    &:active { 
+        @extend .fade;
+        color: $blue-dark;
+        text-decoration: underline;
+    }
+    
+    &:active {
+        text-decoration: none;
+    }
+}
+
+h1 {
+    color: white;
+    @include font-size(4, 5.2);
+
+    @media screen and (min-width: 769px) {
+        @include font-size(5.5, 6.8);
+    }
+    
+    @media screen and (min-width: 981px) {
+        @include font-size(8, 9.5);
+    }
+}
+
+h2 {
+    text-align: center;
+    @include font-size(3.2, 4);
+}
+
+h3 {
+    @include font-size(2.3, 3);
+}
+
+h4 {
+    @include font-size(1.6, 2.4);
+}
+
+/* layout global */
+.container {
+    width: $full;
+    margin: $center;
+
+    @media screen and (min-width: 981px) {
+        width: 900px;
+    }
+
+    @media screen and (min-width: 1181px) {
+        width: 1024px;
+    }
+    
+    @media screen and (min-width: 1281px) {
+        width: 1181px;
+    }
+}
+
+.logo {
+
+    &:hover {
+        @extend .hov;
+    }
+
+    &:active {
+        @extend .act;
+    }
+}
+
+a:focus,
+button:focus {
+    outline: 1px dotted $blue-dark;
+}

@@ -19,93 +19,77 @@ gulp.task('watch', ['browserSync', 'sass'], function (){
 
 
 // SASS
-
-    gulp.task('sass', function() {
-    return gulp.src('app/scss/**/*.scss') // Gets all files ending with .scss in app/scss
-        .pipe(sass())
-        .pipe(gulp.dest('app/css'))
-        .pipe(browserSync.reload({
-        stream: true
-        }))
-    });
-
-//
+gulp.task('sass', function() {
+return gulp.src('app/scss/**/*.scss')
+    .pipe(sass())
+    .pipe(gulp.dest('app/css'))
+    .pipe(browserSync.reload({
+    stream: true
+    }))
+});
 
 
 // BROWSER SYNC
-
-    gulp.task('browserSync', function() {
-        browserSync.init({
-            server: {
-            baseDir: 'app'
-            },
-        })
+gulp.task('browserSync', function() {
+    browserSync.init({
+        server: {
+        baseDir: 'app'
+        },
     })
-
-//
+})
 
 
 // JS/CSS minifikator i pakovanje u jedan fajl, kao i kompajliranje HTML fajlova
-    
-    gulp.task('useref', function(){
-    return gulp.src('app/*.html')
-        .pipe(useref())
-        .pipe(gulpIf('*.js', uglify()))
-        .pipe(gulpIf('*.css', cssnano()))
-        .pipe(gulp.dest('dist'))
-    });
-
-//
+gulp.task('useref', function(){
+return gulp.src('app/*.html')
+    .pipe(useref())
+    .pipe(gulpIf('*.js', uglify()))
+    .pipe(gulpIf('*.css', cssnano()))
+    .pipe(gulp.dest('dist'))
+});
 
 
 // Optimizacija slika
+gulp.task('img', function(){
+return gulp.src('app/img/**/*.+(png|jpg|jpeg|gif|svg)')
+.pipe(imagemin({
+    // Setting interlaced to true
+    interlaced: true
+    }))
+.pipe(gulp.dest('dist/img'))
+});
 
-    gulp.task('img', function(){
-    return gulp.src('app/img/**/*.+(png|jpg|jpeg|gif|svg)')
-    .pipe(imagemin({
-        // Setting interlaced to true
-        interlaced: true
-        }))
-    .pipe(gulp.dest('dist/img'))
-    });
-
-    gulp.task('img', function(){
-    return gulp.src('app/img/**/*.+(png|jpg|jpeg|gif|svg)')
-    // Caching images that ran through imagemin
-    .pipe(cache(imagemin({
-        interlaced: true
-        })))
-    .pipe(gulp.dest('dist/img'))
-    });
-
-//
+gulp.task('img', function(){
+return gulp.src('app/img/**/*.+(png|jpg|jpeg|gif|svg)')
+// Caching images that ran through imagemin
+.pipe(cache(imagemin({
+    interlaced: true
+    })))
+.pipe(gulp.dest('dist/img'))
+});
 
 
 // Prebacivanje fontova
-
-    gulp.task('fonts', function() {
-        return gulp.src('app/fonts/**/*')
-        .pipe(gulp.dest('dist/fonts'))
-    })
-
-//
+gulp.task('fonts', function() {
+    return gulp.src('app/fonts/**/*')
+    .pipe(gulp.dest('dist/fonts'))
+})
 
 
 // ciscenje od fajlova koji se ne koriste vise
+gulp.task('clean:dist', function() {
+    return del.sync('dist');
+})
 
-    gulp.task('clean:dist', function() {
-        return del.sync('dist');
-    })
-
-//
-
-
+// Build
 gulp.task('build', function (callback) {
   runSequence('clean:dist', 
     ['sass', 'useref', 'img', 'fonts'],
     callback
   )
 })
+
+// Default
 gulp.task('default', function (callback) {
   runSequence(['sass','browserSync', 'watch'],
     callback

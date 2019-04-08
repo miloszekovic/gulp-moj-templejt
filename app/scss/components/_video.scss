@@ -1,0 +1,64 @@
+/* Video modal */
+
+.video-overlay {
+    background: rgba(black, .7);
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+
+    section {
+        width: 90%;
+        @extend .block-centering;
+
+        @media screen and (min-width: 769px) {
+            width: 70%;
+        }
+        
+        @media screen and (min-width: 981px) {
+            width: $full / 2;
+        }
+
+        .video-close {
+            text-align: right;
+            margin-bottom: 15px;
+
+            .button-video-close {
+                width: 23px;
+                height: 25px;
+                background: url(../../img/ui/icon-close-white.png) no-repeat;
+                background-size: 23px 25px;
+                @extend .hidding-text;
+                @extend .fade;
+
+                &:hover {
+                    @extend .fade;
+                    @extend .hov;
+                }
+
+                &:active {
+                    @extend .fade;
+                    @extend .act;
+                }
+            }
+        }
+
+        .video {
+            position: relative;
+            padding-bottom: 56.25%;
+
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

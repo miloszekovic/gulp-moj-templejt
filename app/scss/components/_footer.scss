@@ -1,0 +1,138 @@
+/* Footer */
+
+footer {
+
+    * {
+        color: white;
+        @include font-size(1.4, 2.2);
+    }
+
+    .footer__text-nav {
+        display: none;
+
+        @media screen and (min-width: 980px) {
+            display: block;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        background: $blue-dark;
+        padding: 87px 0 67px;
+
+        .footer__text {
+            width: $full / 10 * 4.5;
+
+            .logo img {
+                width: auto;
+                height: 30px;
+            }
+
+            p {
+                padding-top: 20px;
+            }
+        }
+
+        .footer__nav {
+            display: flex;
+            width: $full / 10 * 5.5;
+
+            h4 {
+                text-transform: uppercase;
+                padding-bottom: 14px;
+            }
+
+            div {
+                width: $full / 3;
+
+                li {
+                    padding-top: 20px;
+
+                    a {
+
+                        &:hover {
+                            @extend .hov;
+                            color: white;
+                            text-decoration: none;
+                        }
+
+                        &:hover {
+                            @extend .act;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .footer__copy {
+        background: $blue-light;
+        padding: 18px 20px;
+        position: relative;
+
+        @media screen and (min-width: 981px) {
+            padding: 18px 0;
+        }
+
+        @media screen and (max-width: 500px) {
+            height: 140px;
+        }
+
+        p,
+        ul li {
+            @extend .floating;
+        }
+        
+        p {
+            @include font-size(1.2, 2);
+            padding-top: 3px;
+
+            @media screen and (max-width: 500px) {
+                padding: 20px 0 30px;
+            }
+        }
+
+        p,
+        ul {
+            @media screen and (max-width: 500px) {
+                display: block;
+                text-align: center;
+            }
+        }
+
+        ul {
+            float: right;
+
+            @media screen and (max-width: 500px) {
+                float: inherit;
+            }
+
+            li {
+                padding-left: 25px;
+
+                @media screen and (max-width: 500px) {
+                    &:first-child {
+                        padding-left: 0;
+                    }
+                }
+
+                a {
+
+                    &:hover {
+                        @extend .hov;
+                    }
+
+                    &:hover {
+                        @extend .act;
+                    }
+                }
+
+                img {
+                    width: auto;
+                    height: 22px;
+                }
+            }
+        }
+    }
+}

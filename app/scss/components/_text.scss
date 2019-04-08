@@ -1,0 +1,46 @@
+/* Text block */
+
+.text-block {
+    padding: 70px 20px 50px;
+
+    @media screen and (min-width: 981px) {
+        padding: 120px 0 100px;
+    }
+
+    article {
+        width: $full;
+
+        @media screen and (min-width: 981px) {
+            width: 80%;
+        }
+
+        h2,
+        h3 {
+            font-weight: normal;
+            padding-bottom: 40px;
+        }
+
+        h2 {
+            text-align: left;
+            @include font-size(2.8, 3.4);
+        }
+
+        h3 {
+            padding-top: 20px;
+        }
+
+        ul {
+            padding-bottom: 20px;
+
+            li {
+                padding: 0 0 20px 30px;
+                background: url(../../img/ui/icon-bullet.png) left top no-repeat;
+                background-size: 9px 16px;
+            }
+        }
+
+        p {
+            padding-bottom: 30px;
+        }
+    }
+}

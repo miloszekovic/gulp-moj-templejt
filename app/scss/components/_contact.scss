@@ -1,0 +1,97 @@
+/* Contact */
+
+.contact {
+    padding: 50px 20px 75px;
+    background: $light;
+
+    @media screen and (min-width: 769px) {
+        padding: 50px 50px 75px;
+        background: $light;
+    }
+    
+    @media screen and (min-width: 981px) {
+        padding: 70px 0 95px;
+        background: url(../../img/art/contact.png) center center no-repeat $light;
+    }
+
+    .contact__form {
+        padding-top: 70px;
+        text-align: right;
+
+        div {
+            width: $full;
+            display: inline-block;
+            text-align: left;
+
+            @media screen and (min-width: 981px) {
+                width: 500px;
+            }
+
+            div {
+                padding-bottom: 25px;
+
+                label,
+                input,
+                textarea {
+                    display: block;
+                }
+
+                label {
+                    @include font-size(1.4, 2.4);
+                    padding-bottom: 10px;
+                }
+
+                input,
+                textarea {
+                    width: $full;
+                    @include rounded-corners($size:3px);
+                    border: 1px solid $input-border;
+                    height: 58px;
+                    padding: 0 17px;
+                    color: $input-text;
+                    @extend .fade;
+                    background: $light;
+
+                    &:hover {
+                        @extend .fade;
+                        border: 1px solid $blue-light;
+                    }
+
+                    &:focus {
+                        @extend .fade;
+                        border: 1px solid $yellow;
+                    }
+                }
+
+                textarea {
+                    height: 140px;
+                    padding: 17px;
+                    resize: none;
+                }
+
+                &.contact__check {
+                    
+                    input {
+                        width: auto;
+                        height: auto;
+                        padding: 0;
+                    }
+
+                    input,
+                    label {
+                        @extend .floating;
+                    }
+
+                    label {
+                        width: 60%;
+                        margin: -5px 0 0 10px;
+
+                        @media screen and (min-width: 981px) {
+                            width: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

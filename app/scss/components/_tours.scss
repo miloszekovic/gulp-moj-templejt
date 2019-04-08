@@ -1,0 +1,186 @@
+/* Tours block */
+
+.tours {
+    padding: 85px 20px 110px;
+    background: $blue-light;
+
+    @media screen and (min-width: 901px) {
+        background: url(../../img/art/tours.png) center bottom no-repeat $blue-light;
+    }
+
+    @media screen and (min-width: 981px) {
+        padding: 85px 0 110px;
+    }
+
+    h2 {
+        color: white;
+    }
+
+    .tours__box {
+        padding-top: 110px;
+
+        .tours__ticket {
+            display: block;
+            background: white;
+            margin-bottom: 45px;
+            @include rounded-corners($size:5px);
+            width: $full;
+
+            @media screen and (min-width: 901px) {
+                width: $full / 12 * 10;
+                display: flex;
+            }
+
+            @media screen and (min-width: 981px) {
+                width: $full / 12 * 7;
+            }
+
+            div {
+                min-height: 95px;
+                position: relative;
+
+                div {
+                    min-height: auto;
+                }
+            }
+
+            .tours__ticket-icon {
+                width: $full;
+
+                @media screen and (min-width: 901px) {
+                    width: 20%;
+                }
+
+                div {
+                    @extend .block-centering;
+                    min-height: auto;
+                }
+
+                img {
+                    width: auto;
+                    height: 50px;
+                    margin-bottom: -5px;
+                }
+            }
+
+            .tours__ticket-info {
+                border-bottom: 9px dotted #ddd;
+                width: $full;
+
+                @media screen and (min-width: 901px) {
+                    width: 55%;
+                    border-right: 9px dotted #ddd;
+                    border-bottom: 0;
+                }
+
+                div {
+                    @extend .block-centering-left;
+                    text-align: center;
+                    width: $full;
+
+                    @media screen and (min-width: 901px) {
+                        text-align: left;
+                    }
+                }
+
+                h3,
+                p {
+                    color: $gray-light;
+                    padding: 0 20px 20px;
+
+                    @media screen and (min-width: 901px) {
+                        padding: 0 0 0 20px;
+                    }
+                }
+                
+                h3 {
+                    @include font-size(1.8, 2);
+                    padding-bottom: 12px;
+                }
+
+                p {
+                    @include font-size(1.3, 2);
+                }
+            }
+
+            .tours__ticket-price {
+                width: $full;
+
+                @media screen and (min-width: 901px) {
+                    width: 25%;
+                }
+
+                div {
+                    @extend .block-centering;
+                    min-height: auto;
+                }
+
+                var,
+                span {
+                    display: block;
+                }
+
+                var {
+                    color: $yellow;
+                    font-weight: bold;
+                    font-style: normal;
+                    @include font-size(2.5, 3);
+                }
+
+                span {
+                    margin: 10px 0 0 10px;
+                }
+            }
+
+            &:first-child {
+                width: $full;
+
+                @media screen and (min-width: 901px) {
+                    width: $full / 12 * 11;
+                }
+
+                @media screen and (min-width: 981px) {
+                    width: $full / 12 * 9;
+                }
+
+                div {
+                    min-height: 123px;
+
+                    div {
+                        min-height: auto;
+                    }
+                }
+
+                .tours__ticket-icon {
+
+                    img {
+                        width: auto;
+                        height: 80px;
+                    }
+                }
+
+                .tours__ticket-info {
+
+                    h3 {
+                        @include font-size(2.3, 2.7);
+                    }
+    
+                    p {
+                        @include font-size(1.6, 2.2);
+                    }
+                }
+
+                .tours__ticket-price {
+
+                    var {
+                        @include font-size(3, 3.4);
+                    }
+                }
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,118 @@
+/* Mixing */
+
+@mixin box-shadow($size) {
+    -webkit-box-shadow: $size;
+    -moz-box-shadow: $size;
+    box-shadow: $size;
+}
+
+@mixin rounded-corners($size:50%) {
+    border-radius: $size;
+    -webkit-border-radius: $size;
+    -moz-border-radius: $size;
+}
+
+@mixin rotate($degrees) {
+    -webkit-transform: rotate($degrees);
+    -moz-transform: rotate($degrees);
+    -ms-transform: rotate($degrees);
+    -o-transform: rotate($degrees);
+    transform: rotate($degrees);
+}
+
+@mixin transitions($transition...) {
+    -moz-transition: $transition;
+    -o-transition: $transition;
+    -webkit-transition: $transition;
+    -ms-transition: $transition;
+    transition: $transition;
+}
+
+@mixin animations($animation...) {
+    -moz-animation: $animation;
+    -o-animation: $animation;
+    -webkit-animation: $animation;
+    -ms-animation: $animation;
+    animation: $animation;
+}
+
+.floating { 
+    display: inline-block;
+    vertical-align: top;
+    margin-right: -5px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.fade {
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+
+.no-fade {
+    transition: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+}
+
+.hov {
+    opacity: .8;
+    -moz-opacity: .8;
+}
+
+.act {
+    opacity: .6;
+    -moz-opacity: .6;
+}
+
+.block-centering {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.block-centering-left {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-right: 0;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+}
+
+.img {
+    width: $full;
+    height: auto;
+    line-height: 0;
+}
+
+.hidding-text {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* fonts */
+@mixin font-size($size:1.6, $line: $size * 1.5){
+    font-size: ($size * 10) + px;
+    line-height: ($line * 10) + px;
+    font-size: $size + rem;
+    line-height: $line + rem;
+}
+
+.base-font {
+    font-family: 'Montserrat', Arial, sans-serif;
+}
